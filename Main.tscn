@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7p5qsdgt8vc1"]
 
 [ext_resource type="Script" uid="uid://btb48yot0ksd6" path="res://main.gd" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://vcr3n3g0a31i" path="res://car.tscn" id="2_uu6xs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
 bg_color = Color(0.90382373, 0.90382373, 0.90382373, 0)
@@ -287,23 +288,6 @@ visible = false
 width = 6.0
 default_color = Color(1, 0.7411765, 0, 1)
 
-[node name="Car" type="ColorRect" parent="." unique_id=334450510]
-offset_left = 59.0
-offset_top = 256.0
-offset_right = 110.0
-offset_bottom = 280.0
-color = Color(0.33183005, 1, 1, 1)
-
-[node name="CarLabel" type="Label" parent="Car" unique_id=1659750921]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 45.0
-offset_bottom = 28.0
-theme_override_font_sizes/font_size = 14
-text = "CAR"
-horizontal_alignment = 1
-
 [node name="ReleaseParkingButton" type="Button" parent="." unique_id=1118744470]
 offset_left = 400.0
 offset_top = 525.0
@@ -418,5 +402,7 @@ offset_right = 950.0
 offset_bottom = 630.0
 theme_override_font_sizes/font_size = 10
 autowrap_mode = 2
+
+[node name="Car" parent="." unique_id=1665558261 instance=ExtResource("2_uu6xs")]
 
 [connection signal="timeout" from="ParkingTimer" to="." method="_on_parking_timer_timeout"]

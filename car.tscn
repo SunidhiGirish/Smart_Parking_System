@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vcr3n3g0a31i"]
+
+[ext_resource type="Texture2D" uid="uid://dl6ru872urjrc" path="res://car_textures/car_red.png" id="1_7822p"]
+
+[node name="Car" type="Sprite2D" unique_id=1665558261]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_7822p")

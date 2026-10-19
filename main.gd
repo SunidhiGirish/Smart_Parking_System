@@ -3,8 +3,18 @@ extends Node2D
 
 const TOTAL_SLOTS = 8
 const ENTRY_POINT = Vector2(85, 265)
-const CAR_HALF_SIZE = Vector2(25, 15)
+const CAR_HALF_SIZE = Vector2(12, 22)
 const EXIT_LANE_Y = 265.0
+const CAR_TEXTURES: Array[Texture2D] = [
+	preload("res://car_textures/car_red.png"),
+	preload("res://car_textures/car_blue.png"),
+	preload("res://car_textures/car_yellow.png"),
+	preload("res://car_textures/car_green.png"),
+	preload("res://car_textures/car_purple.png"),
+	preload("res://car_textures/car_orange.png"),
+	preload("res://car_textures/car_white.png"),
+	preload("res://car_textures/car_pink.png")
+]
 
 var car_moving = false
 var next_car_id = 1
@@ -95,17 +105,21 @@ func set_current_status(message: String):
 	$CurrentStatusLabel.text = "CURRENT STATUS\n" + message
 
 
-func create_car(car_id: int) -> ColorRect:
-	var new_car = $Car.duplicate() as ColorRect
-
+func create_car(car_id: int) -> Sprite2D:
+	var new_car = $Car.duplicate() as Sprite2D
 	new_car.name = "Car_%d" % car_id
+	new_car.texture = CAR_TEXTURES[(car_id - 1) % CAR_TEXTURES.size()]
+
 	add_child(new_car)
 
 	new_car.visible = true
+	new_car.rotation = PI / 2
 	new_car.position = ENTRY_POINT - CAR_HALF_SIZE
 	new_car.z_index = 5
 
 	return new_car
+
+
 
 
 func find_nearest_available_slot() -> String:
@@ -155,7 +169,7 @@ func _on_find_parking_pressed():
 	await park_car_in_slot(new_car, nearest_slot)
 
 
-func park_car_in_slot(car: ColorRect, slot_name: String):
+func park_car_in_slot(car: Sprite2D, slot_name: String):
 	if car_moving:
 		return
 
@@ -179,22 +193,23 @@ func park_car_in_slot(car: ColorRect, slot_name: String):
 		Vector2(slot_center.x, ENTRY_POINT.y),
 		slot_center
 	])
-	$GuidancePath.visible = true
+	$GuidancePath.visible = false
 
-	car.position = ENTRY_POINT - CAR_HALF_SIZE
+	
+	car.position = ENTRY_POINT
+	car.rotation = PI / 2
 
-	var waypoint = Vector2(
-		slot_center.x - CAR_HALF_SIZE.x,
-		ENTRY_POINT.y - CAR_HALF_SIZE.y
-	)
-
-	var final_position = slot_center - CAR_HALF_SIZE
+	var waypoint = Vector2(slot_center.x, ENTRY_POINT.y)
+	var final_position = slot_center
 
 	var tween = create_tween()
 	tween.tween_property(car, "position", waypoint, 1.5)
+	tween.tween_property(car, "rotation", 0.0, 0.4)
 	tween.tween_property(car, "position", final_position, 1.0)
 
 	await tween.finished
+	car.rotation = 0.0
+
 
 	# Store this specific car in its assigned slot.
 	parked_cars[slot_name] = car
@@ -250,31 +265,27 @@ func _on_release_parking_pressed():
 	else:
 		lane_entry_y = slot.position.y
 
-	var lane_position = Vector2(
-		slot_center.x - CAR_HALF_SIZE.x,
-		EXIT_LANE_Y - CAR_HALF_SIZE.y
-	)
+	
+	
 
-	var exit_position = Vector2(
-		900 - CAR_HALF_SIZE.x,
-		EXIT_LANE_Y - CAR_HALF_SIZE.y
-	)
+	var lane_position = Vector2(slot_center.x, EXIT_LANE_Y)
+	var exit_position = Vector2(900, EXIT_LANE_Y)
 
-	$GuidancePath.points = PackedVector2Array([
-		Vector2(slot_center.x, lane_entry_y),
-		Vector2(slot_center.x, EXIT_LANE_Y),
-		Vector2(900, EXIT_LANE_Y)
-	])
-	$GuidancePath.visible = true
+	$GuidancePath.visible = false
 
 	$StatusLabel.text = "Car Leaving " + display_name
 	set_current_status("Car leaving " + display_name)
 
+# First, turn the car to face right while moving to the lane.
 	var tween = create_tween()
 	tween.tween_property(car, "position", lane_position, 1.0)
+	tween.parallel().tween_property(car, "rotation", PI / 2, 0.4)
+
+# Then drive straight along the exit lane.
 	tween.tween_property(car, "position", exit_position, 2.0)
 
 	await tween.finished
+	car.rotation = PI / 2
 
 	var elapsed_seconds = int(
 		(Time.get_ticks_msec() - int(car_start_ticks[slot_name])) / 1000.0
