@@ -1,0 +1,422 @@
+[gd_scene format=3 uid="uid://b7p5qsdgt8vc1"]
+
+[ext_resource type="Script" uid="uid://btb48yot0ksd6" path="res://main.gd" id="1_glv2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
+bg_color = Color(0.90382373, 0.90382373, 0.90382373, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="Main" type="Node2D" unique_id=1316920616]
+script = ExtResource("1_glv2v")
+
+[node name="ParkingBackground" type="ColorRect" parent="." unique_id=1397782667]
+offset_right = 1000.0
+offset_bottom = 650.0
+color = Color(0.27, 0.27, 0.27, 1)
+
+[node name="DrivingLane" type="ColorRect" parent="ParkingBackground" unique_id=263635284]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 250.0
+offset_right = 900.0
+offset_bottom = 295.0
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[node name="ParkingSlot1" type="ColorRect" parent="." unique_id=828174063]
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 250.0
+offset_bottom = 230.0
+color = Color(0, 0.82665706, 0.3133042, 0.82400006)
+
+[node name="SlotName" type="Label" parent="ParkingSlot1" unique_id=216013611]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P1"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot1" unique_id=369937440]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot2" type="ColorRect" parent="." unique_id=1166267167]
+offset_left = 280.0
+offset_top = 150.0
+offset_right = 430.0
+offset_bottom = 230.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot2" unique_id=207533561]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P2"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot2" unique_id=1796541605]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot3" type="ColorRect" parent="." unique_id=1096384461]
+offset_left = 460.0
+offset_top = 150.0
+offset_right = 610.0
+offset_bottom = 230.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot3" unique_id=557728493]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P3"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot3" unique_id=2010288870]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot4" type="ColorRect" parent="." unique_id=1089396173]
+offset_left = 640.0
+offset_top = 150.0
+offset_right = 790.0
+offset_bottom = 230.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot4" unique_id=122312676]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P4"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot4" unique_id=110195458]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot5" type="ColorRect" parent="." unique_id=1889369369]
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 250.0
+offset_bottom = 380.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot5" unique_id=238962458]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P5"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot5" unique_id=1787823260]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot6" type="ColorRect" parent="." unique_id=329958469]
+offset_left = 280.0
+offset_top = 300.0
+offset_right = 430.0
+offset_bottom = 380.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot6" unique_id=256926178]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P6"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot6" unique_id=499136101]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot7" type="ColorRect" parent="." unique_id=346742151]
+offset_left = 460.0
+offset_top = 300.0
+offset_right = 610.0
+offset_bottom = 380.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot7" unique_id=1473515853]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P7"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot7" unique_id=1877614353]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="ParkingSlot8" type="ColorRect" parent="." unique_id=19251288]
+offset_left = 640.0
+offset_top = 300.0
+offset_right = 790.0
+offset_bottom = 380.0
+color = Color(0, 0.827451, 0.3137255, 0.8235294)
+
+[node name="SlotName" type="Label" parent="ParkingSlot8" unique_id=2037204203]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 100.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "P8"
+horizontal_alignment = 1
+
+[node name="SlotBorder" type="Panel" parent="ParkingSlot8" unique_id=889444005]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
+
+[node name="Title" type="Label" parent="." unique_id=2085910661]
+offset_left = 250.0
+offset_top = 30.0
+offset_right = 750.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 28
+text = "SMART PARKING SYSTEM"
+horizontal_alignment = 1
+
+[node name="EntryLabel" type="Label" parent="." unique_id=608853272]
+offset_left = 20.0
+offset_top = 215.0
+offset_right = 120.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 20
+text = "ENTRY ↓"
+
+[node name="ExitLabel" type="Label" parent="." unique_id=238577413]
+offset_left = 850.0
+offset_top = 390.0
+offset_right = 970.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 22
+text = "EXIT→"
+
+[node name="StatusLabel" type="Label" parent="." unique_id=475023623]
+offset_left = 350.0
+offset_top = 580.0
+offset_right = 650.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 20
+text = "Available Slots: 8 / 8"
+horizontal_alignment = 1
+
+[node name="FindParkingButton" type="Button" parent="." unique_id=2102953007]
+offset_left = 400.0
+offset_top = 450.0
+offset_right = 600.0
+offset_bottom = 500.0
+text = "FIND PARKING"
+
+[node name="AvailableLegend" type="Label" parent="." unique_id=1665449329]
+offset_left = 250.0
+offset_top = 620.0
+offset_right = 430.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 16
+text = "GREEN = AVAILABLE"
+
+[node name="OccupiedLegend" type="Label" parent="." unique_id=2092854829]
+offset_left = 450.0
+offset_top = 620.0
+offset_right = 630.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 16
+text = "RED = OCCUPIED"
+
+[node name="RecommendedLegend" type="Label" parent="." unique_id=433531378]
+offset_left = 620.0
+offset_top = 620.0
+offset_right = 827.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 16
+text = "YELLOW = RECOMMENDED"
+
+[node name="GuidancePath" type="Line2D" parent="." unique_id=1183819398]
+visible = false
+width = 6.0
+default_color = Color(1, 0.7411765, 0, 1)
+
+[node name="Car" type="ColorRect" parent="." unique_id=334450510]
+offset_left = 59.0
+offset_top = 256.0
+offset_right = 110.0
+offset_bottom = 280.0
+color = Color(0.33183005, 1, 1, 1)
+
+[node name="CarLabel" type="Label" parent="Car" unique_id=1659750921]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 14
+text = "CAR"
+horizontal_alignment = 1
+
+[node name="ReleaseParkingButton" type="Button" parent="." unique_id=1118744470]
+offset_left = 400.0
+offset_top = 525.0
+offset_right = 600.0
+offset_bottom = 570.0
+text = "RELEASE PARKING"
+
+[node name="ParkingTimer" type="Timer" parent="." unique_id=225290684]
+
+[node name="DrivingLane" type="ColorRect" parent="." unique_id=2142727244]
+z_index = -1
+offset_left = 50.0
+offset_top = 250.0
+offset_right = 900.0
+offset_bottom = 295.0
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[node name="LaneArrow" type="Label" parent="." unique_id=135633208]
+offset_left = 122.0
+offset_top = 259.0
+offset_right = 899.0
+offset_bottom = 294.0
+text = "→    →     →     →     →    →     →     →     →     →    →     →     →     →     →    →     →     →"
+horizontal_alignment = 1
+
+[node name="ParkingAreaLabel" type="Label" parent="." unique_id=1526069707]
+offset_left = 300.0
+offset_top = 110.0
+offset_right = 650.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 18
+text = "PARKING AREA"
+horizontal_alignment = 1
+
+[node name="SystemStatusPanel" type="Label" parent="." unique_id=1905408837]
+offset_left = 820.0
+offset_top = 120.0
+offset_right = 980.0
+offset_bottom = 300.0
+
+[node name="PanelTitle" type="Label" parent="SystemStatusPanel" unique_id=1937354349]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -11.0
+offset_right = 147.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 16
+text = "SYSTEM STATUS"
+horizontal_alignment = 1
+
+[node name="PanelInfo" type="Label" parent="SystemStatusPanel" unique_id=816554560]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 23.0
+offset_right = 166.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 14
+text = "Total Slots: 8"
+
+[node name="AvailabilityInfo" type="Label" parent="SystemStatusPanel" unique_id=729082008]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 44.0
+offset_right = 171.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 14
+text = "Available: 8"
+
+[node name="OccupiedInfo" type="Label" parent="SystemStatusPanel" unique_id=805856990]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 65.0
+offset_right = 180.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 14
+text = "Occupied: 0"
+
+[node name="ParkingStatusInfo" type="Label" parent="SystemStatusPanel" unique_id=1245098131]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 90.0
+offset_right = 162.0
+offset_bottom = 115.0
+text = "Status: AVAILABLE"
+
+[node name="ParkingTimerLabel" type="Label" parent="." unique_id=1294766565]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 40.0
+text = "Parking Time: 00:00"
+
+[node name="CurrentStatusLabel" type="Label" parent="." unique_id=665985440]
+offset_left = 685.0
+offset_top = 493.0
+offset_right = 994.0
+offset_bottom = 543.0
+text = "CURRENT STATUS: Ready to find parking"
+
+[node name="QueueLabel" type="Label" parent="." unique_id=1266285163]
+offset_left = 820.0
+offset_top = 455.0
+offset_right = 970.0
+offset_bottom = 490.0
+offset_transform_enabled = true
+text = "QUEUE: 0"
+
+[node name="ParkingHistoryLabel" type="Label" parent="." unique_id=428275044]
+offset_left = 610.0
+offset_top = 510.0
+offset_right = 950.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 2
+
+[connection signal="timeout" from="ParkingTimer" to="." method="_on_parking_timer_timeout"]
