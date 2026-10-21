@@ -4,11 +4,31 @@
 [ext_resource type="PackedScene" uid="uid://vcr3n3g0a31i" path="res://car.tscn" id="2_uu6xs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h11f"]
-bg_color = Color(0.90382373, 0.90382373, 0.90382373, 0)
+bg_color = Color(0.1254902, 0.14901961, 0.1882353, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+border_color = Color(0.76862746, 0.8039216, 0.8352941, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu6xs"]
+bg_color = Color(0.105882354, 0.14509805, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.20784314, 0.27058825, 0.3254902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0du0"]
+bg_color = Color(0.0627451, 0.09411765, 0.1254902, 1)
 
 [node name="Main" type="Node2D" unique_id=1316920616]
 script = ExtResource("1_glv2v")
@@ -31,22 +51,25 @@ offset_left = 100.0
 offset_top = 150.0
 offset_right = 250.0
 offset_bottom = 230.0
-color = Color(0, 0.82665706, 0.3133042, 0.82400006)
+color = Color(0.1254902, 0.14901961, 0.1882353, 1)
 
 [node name="SlotName" type="Label" parent="ParkingSlot1" unique_id=216013611]
+z_index = 5
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 50.0
+offset_top = 79.0
+offset_right = 90.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
 text = "P1"
 horizontal_alignment = 1
 
 [node name="SlotBorder" type="Panel" parent="ParkingSlot1" unique_id=369937440]
 layout_mode = 0
+offset_top = -1.0
 offset_right = 150.0
-offset_bottom = 80.0
+offset_bottom = 79.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
 
@@ -59,11 +82,11 @@ color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot2" unique_id=207533561]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 50.0
+offset_top = 79.0
+offset_right = 93.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 14
 text = "P2"
 horizontal_alignment = 1
 
@@ -83,11 +106,11 @@ color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot3" unique_id=557728493]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 50.0
+offset_top = 79.0
+offset_right = 90.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 14
 text = "P3"
 horizontal_alignment = 1
 
@@ -107,11 +130,11 @@ color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot4" unique_id=122312676]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 50.0
+offset_top = 79.0
+offset_right = 90.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 14
 text = "P4"
 horizontal_alignment = 1
 
@@ -123,19 +146,19 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
 
 [node name="ParkingSlot5" type="ColorRect" parent="." unique_id=1889369369]
-offset_left = 100.0
-offset_top = 300.0
-offset_right = 250.0
-offset_bottom = 380.0
+offset_left = 98.0
+offset_top = 314.0
+offset_right = 248.0
+offset_bottom = 394.0
 color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot5" unique_id=238962458]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 54.0
+offset_top = -19.0
+offset_right = 94.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 14
 text = "P5"
 horizontal_alignment = 1
 
@@ -148,18 +171,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
 
 [node name="ParkingSlot6" type="ColorRect" parent="." unique_id=329958469]
 offset_left = 280.0
-offset_top = 300.0
+offset_top = 314.0
 offset_right = 430.0
-offset_bottom = 380.0
+offset_bottom = 394.0
 color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot6" unique_id=256926178]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 54.0
+offset_top = -19.0
+offset_right = 94.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 14
 text = "P6"
 horizontal_alignment = 1
 
@@ -172,18 +195,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
 
 [node name="ParkingSlot7" type="ColorRect" parent="." unique_id=346742151]
 offset_left = 460.0
-offset_top = 300.0
+offset_top = 314.0
 offset_right = 610.0
-offset_bottom = 380.0
+offset_bottom = 394.0
 color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot7" unique_id=1473515853]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 54.0
+offset_top = -19.0
+offset_right = 94.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 14
 text = "P7"
 horizontal_alignment = 1
 
@@ -196,18 +219,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5h11f")
 
 [node name="ParkingSlot8" type="ColorRect" parent="." unique_id=19251288]
 offset_left = 640.0
-offset_top = 300.0
+offset_top = 314.0
 offset_right = 790.0
-offset_bottom = 380.0
+offset_bottom = 394.0
 color = Color(0, 0.827451, 0.3137255, 0.8235294)
 
 [node name="SlotName" type="Label" parent="ParkingSlot8" unique_id=2037204203]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 25.0
-offset_right = 100.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 24
+offset_left = 54.0
+offset_top = -19.0
+offset_right = 94.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 14
 text = "P8"
 horizontal_alignment = 1
 
@@ -259,30 +282,6 @@ offset_right = 600.0
 offset_bottom = 500.0
 text = "FIND PARKING"
 
-[node name="AvailableLegend" type="Label" parent="." unique_id=1665449329]
-offset_left = 250.0
-offset_top = 620.0
-offset_right = 430.0
-offset_bottom = 650.0
-theme_override_font_sizes/font_size = 16
-text = "GREEN = AVAILABLE"
-
-[node name="OccupiedLegend" type="Label" parent="." unique_id=2092854829]
-offset_left = 450.0
-offset_top = 620.0
-offset_right = 630.0
-offset_bottom = 650.0
-theme_override_font_sizes/font_size = 16
-text = "RED = OCCUPIED"
-
-[node name="RecommendedLegend" type="Label" parent="." unique_id=433531378]
-offset_left = 620.0
-offset_top = 620.0
-offset_right = 827.0
-offset_bottom = 650.0
-theme_override_font_sizes/font_size = 16
-text = "YELLOW = RECOMMENDED"
-
 [node name="GuidancePath" type="Line2D" parent="." unique_id=1183819398]
 visible = false
 width = 6.0
@@ -323,79 +322,82 @@ text = "PARKING AREA"
 horizontal_alignment = 1
 
 [node name="SystemStatusPanel" type="Label" parent="." unique_id=1905408837]
+z_index = 10
 offset_left = 820.0
-offset_top = 120.0
+offset_top = 49.0
 offset_right = 980.0
-offset_bottom = 300.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_uu6xs")
 
 [node name="PanelTitle" type="Label" parent="SystemStatusPanel" unique_id=1937354349]
 layout_mode = 0
-offset_left = 7.0
-offset_top = -11.0
-offset_right = 147.0
-offset_bottom = 19.0
+offset_left = 11.0
+offset_top = 21.0
+offset_right = 151.0
+offset_bottom = 51.0
 theme_override_font_sizes/font_size = 16
 text = "SYSTEM STATUS"
 horizontal_alignment = 1
 
 [node name="PanelInfo" type="Label" parent="SystemStatusPanel" unique_id=816554560]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 23.0
-offset_right = 166.0
-offset_bottom = 53.0
+offset_left = 28.0
+offset_top = 62.0
+offset_right = 168.0
+offset_bottom = 92.0
 theme_override_font_sizes/font_size = 14
 text = "Total Slots: 8"
 
 [node name="AvailabilityInfo" type="Label" parent="SystemStatusPanel" unique_id=729082008]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 44.0
-offset_right = 171.0
-offset_bottom = 74.0
+offset_left = 33.0
+offset_top = 85.0
+offset_right = 173.0
+offset_bottom = 115.0
 theme_override_font_sizes/font_size = 14
 text = "Available: 8"
 
 [node name="OccupiedInfo" type="Label" parent="SystemStatusPanel" unique_id=805856990]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 65.0
+offset_top = 106.0
 offset_right = 180.0
-offset_bottom = 90.0
+offset_bottom = 131.0
 theme_override_font_sizes/font_size = 14
 text = "Occupied: 0"
 
 [node name="ParkingStatusInfo" type="Label" parent="SystemStatusPanel" unique_id=1245098131]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 90.0
-offset_right = 162.0
-offset_bottom = 115.0
+offset_left = 11.0
+offset_top = 135.0
+offset_right = 171.0
+offset_bottom = 164.0
 text = "Status: AVAILABLE"
 
 [node name="ParkingTimerLabel" type="Label" parent="." unique_id=1294766565]
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 240.0
-offset_bottom = 40.0
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 238.0
+offset_bottom = 74.0
 text = "Parking Time: 00:00"
 
 [node name="CurrentStatusLabel" type="Label" parent="." unique_id=665985440]
-offset_left = 685.0
-offset_top = 493.0
-offset_right = 994.0
-offset_bottom = 543.0
+offset_left = 651.0
+offset_top = 487.0
+offset_right = 960.0
+offset_bottom = 537.0
 text = "CURRENT STATUS: Ready to find parking"
 
 [node name="QueueLabel" type="Label" parent="." unique_id=1266285163]
-offset_left = 820.0
+offset_left = 748.0
 offset_top = 455.0
-offset_right = 970.0
+offset_right = 898.0
 offset_bottom = 490.0
 offset_transform_enabled = true
 text = "QUEUE: 0"
 
 [node name="ParkingHistoryLabel" type="Label" parent="." unique_id=428275044]
+visible = false
 offset_left = 610.0
 offset_top = 510.0
 offset_right = 950.0
@@ -404,5 +406,26 @@ theme_override_font_sizes/font_size = 10
 autowrap_mode = 2
 
 [node name="Car" parent="." unique_id=1665558261 instance=ExtResource("2_uu6xs")]
+
+[node name="ParkingHistoryButton" type="Button" parent="." unique_id=1978509192]
+offset_left = 103.0
+offset_top = 477.0
+offset_right = 253.0
+offset_bottom = 508.0
+text = "PARKING HISTORY"
+
+[node name="HistoryPopup" type="PopupPanel" parent="." unique_id=496159604]
+theme_override_styles/panel = SubResource("StyleBoxFlat_r0du0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HistoryPopup" unique_id=2087930778]
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="HistoryPopupText" type="Label" parent="HistoryPopup/VBoxContainer" unique_id=342325753]
+layout_mode = 2
+
+[node name="CloseHistoryButton" type="Button" parent="HistoryPopup/VBoxContainer" unique_id=1282721649]
+layout_mode = 2
+text = "CLOSE"
 
 [connection signal="timeout" from="ParkingTimer" to="." method="_on_parking_timer_timeout"]

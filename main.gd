@@ -60,6 +60,13 @@ func _ready():
 
 	$FindParkingButton.pressed.connect(_on_find_parking_pressed)
 	$ReleaseParkingButton.pressed.connect(_on_release_parking_pressed)
+	
+	$ParkingHistoryLabel.hide()
+	$HistoryPopup.hide()
+
+	$ParkingHistoryButton.pressed.connect(_on_parking_history_button_pressed)
+	$HistoryPopup/VBoxContainer/CloseHistoryButton.pressed.connect(_on_close_history_button_pressed)
+
 
 	load_parking_history()
 	update_status()
@@ -439,3 +446,11 @@ func _on_slot_clicked(event, slot_name):
 
 			$StatusLabel.text = "Selected car: " + display_name
 			set_current_status("Selected " + display_name + " for release.")
+
+func _on_parking_history_button_pressed() -> void:
+	$HistoryPopup/VBoxContainer/HistoryPopupText.text = $ParkingHistoryLabel.text
+	$HistoryPopup.popup_centered()
+
+
+func _on_close_history_button_pressed() -> void:
+	$HistoryPopup.hide()
