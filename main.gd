@@ -1,4 +1,3 @@
-
 extends Node2D
 
 const TOTAL_SLOTS = 8
@@ -39,6 +38,8 @@ var parked_order: Array[String] = []
 
 # Waiting car IDs, served in arrival order
 var waiting_requests: Array[int] = []
+# Stores the actual car sprites waiting in the queue.
+var waiting_cars: Dictionary = {}
 
 # Per-slot entry timestamps and elapsed-time tracking
 var car_entry_times: Dictionary = {}
@@ -56,7 +57,7 @@ func _ready():
 
 	for slot_name in occupied:
 		occupied[slot_name] = false
-		get_node(slot_name).color = Color(0.0, 0.65, 0.08)
+		set_slot_border_color(slot_name, Color.GREEN)
 
 	$FindParkingButton.pressed.connect(_on_find_parking_pressed)
 	$ReleaseParkingButton.pressed.connect(_on_release_parking_pressed)
@@ -75,6 +76,22 @@ func _ready():
 
 	set_current_status("System ready. Find a parking space.")
 
+
+func set_slot_border_color(slot_name: String, border_color: Color) -> void:
+	var border = get_node(slot_name).get_node("SlotBorder") as Panel
+
+	var current_style = border.get_theme_stylebox("panel")
+	var new_style: StyleBoxFlat
+
+	if current_style is StyleBoxFlat:
+		new_style = current_style.duplicate() as StyleBoxFlat
+	else:
+		new_style = StyleBoxFlat.new()
+		new_style.bg_color = Color(0, 0, 0, 0)
+		new_style.set_border_width_all(3)
+
+	new_style.border_color = border_color
+	border.add_theme_stylebox_override("panel", new_style)
 
 func update_status():
 	var available = 0
@@ -106,6 +123,21 @@ func update_status():
 
 func update_queue_display():
 	$QueueLabel.text = "QUEUE: %d" % waiting_requests.size()
+	
+func update_waiting_car_positions():
+	for i in range(waiting_requests.size()):
+		var car_id = waiting_requests[i]
+
+		if waiting_cars.has(car_id):
+			var waiting_car = waiting_cars[car_id]
+
+			# Keep waiting cars in a line before the entrance.
+			waiting_car.position = Vector2(
+				ENTRY_POINT.x - 35.0 * (i + 1),
+				ENTRY_POINT.y
+			)
+
+			waiting_car.rotation = PI / 2
 
 
 func set_current_status(message: String):
@@ -158,8 +190,18 @@ func _on_find_parking_pressed():
 
 	# If full, add a new request to the waiting queue.
 	if nearest_slot == "":
-		waiting_requests.append(next_car_id)
+		var car_id = next_car_id
 		next_car_id += 1
+
+		# Add the car to the waiting queue.
+		waiting_requests.append(car_id)
+
+		# Create a visible car sprite.
+		var waiting_car = create_car(car_id)
+		waiting_cars[car_id] = waiting_car
+
+		# Arrange all waiting cars in order.
+		update_waiting_car_positions()
 
 		update_queue_display()
 		update_status()
@@ -188,7 +230,7 @@ func park_car_in_slot(car: Sprite2D, slot_name: String):
 
 	# Reserve the slot while the car is moving into it.
 	occupied[slot_name] = true
-	slot.color = Color(1.0, 0.75, 0.0)
+	set_slot_border_color(slot_name, Color.YELLOW)
 
 	update_status()
 
@@ -225,7 +267,7 @@ func park_car_in_slot(car: Sprite2D, slot_name: String):
 	car_entry_times[slot_name] = Time.get_datetime_string_from_system()
 	car_start_ticks[slot_name] = Time.get_ticks_msec()
 
-	slot.color = Color(0.85, 0.05, 0.05)
+	set_slot_border_color(slot_name, Color.RED)
 
 	update_status()
 	update_queue_display()
@@ -320,7 +362,7 @@ func _on_release_parking_pressed():
 	selected_slot = ""
 
 	occupied[slot_name] = false
-	slot.color = Color(0.0, 0.65, 0.08)
+	set_slot_border_color(slot_name, Color.GREEN)
 	car.queue_free()
 
 	$GuidancePath.visible = false
@@ -332,11 +374,21 @@ func _on_release_parking_pressed():
 	set_current_status("Car exited successfully.")
 
 	if not waiting_requests.is_empty():
+		# Take the first waiting car.
 		var queued_car_id = waiting_requests.pop_front()
+
+		# Reuse its existing sprite instead of creating another car.
+		var queued_car = waiting_cars[queued_car_id]
+		waiting_cars.erase(queued_car_id)
+
+		# Move the remaining waiting cars forward.
+		update_waiting_car_positions()
 		update_queue_display()
 
-		var queued_car = create_car(queued_car_id)
+		# Send the first waiting car into the freed slot.
+		queued_car.position = ENTRY_POINT
 		car_moving = false
+
 		await park_car_in_slot(queued_car, slot_name)
 		return
 
